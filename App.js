@@ -1,19 +1,42 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StatusBar } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import SearchScreen from './components/SearchScreen'
+import HomeScreen from './components/HomeScreen'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default function App() {
+const Tab = createBottomTabNavigator()
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor="#f4f4f4" />
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ color }) => {
+              let iconName
+              if (route.name === 'home') {
+                iconName = 'home-city-outline'
+              } else if (route.name === 'search') {
+                iconName = 'city'
+              }
+              return <MaterialCommunityIcons name={iconName} size={25} color={color} />
+            },
+          })}
+          tabBarOptions={{
+            activeTintColor: 'white',
+            inactiveTintColor: 'gray',
+            activeBackgroundColor: '#6200ee',
+            inactiveBackgroundColor: '#6200ee',
+          }}
+        >
+          <Tab.Screen name="home" component={HomeScreen} />
+          <Tab.Screen name="search" component={SearchScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
