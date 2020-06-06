@@ -1,4 +1,4 @@
-# weatherApp Previsão do Tempo
+# WeatherApp
 App that shows a weather forecast using the technologies:
 
 * Programmed in React Native. Apps for Android and IOS systems natively.
@@ -58,16 +58,10 @@ npm start
 yarn start
 ```
 
-* Pagina inicial com a presão do tempo da sua cidade
+* Homepage with the weather forecast for your city
 
 ![alt text](https://i.ibb.co/L8DNyHK/Screenshot-20200605-014309.png)
 
-* Pagina para procurar cidade que deseja ver o clima
+* Page to search for the city you want to see the weather
 
 ![alt text](https://i.ibb.co/x5PCr6N/Screenshot-20200605-014608.png)
-
-
-
-
-# Tecnologias
-
